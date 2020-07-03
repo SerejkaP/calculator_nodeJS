@@ -34,4 +34,6 @@ app.post("/", function(request, response) {
     }
 });
 // начинаем прослушивать подключения на 3000 порту
-app.listen(3000);
+app.listen(3000, () => {
+    console.log('App started on https://localhost:3000');
+});
