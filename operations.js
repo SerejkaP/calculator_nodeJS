@@ -55,7 +55,7 @@ const twoArgsOperations = {
     "-": subtraction,
     "*": multiplication,
     "/": division,
-    "**": exponentiation,
+    "^": exponentiation,
     "%": percent
 }
 
