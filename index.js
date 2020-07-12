@@ -8,11 +8,6 @@ app.use(bodyParser.json());
 
 app.post("/two-args", function(request, response) {
     const { firstArg, secondArg, operation } = request.body;
-    firstArg = Number(firstArg);
-    secondArg = Number(secondArg);
-    if (Number.isNaN(firstArg) || Number.isNaN(secondArg)) {
-        return { statusCode: 400, error: 'Not all arguments are numeric' }
-    } else {
     try {
         response
             .status(200)
@@ -20,14 +15,10 @@ app.post("/two-args", function(request, response) {
     } catch (e) {
         response.status(400).json(e.message);
     }
-}});
+});
 
 app.post("/one-arg", function(request, response) {
     const { oneArg, operation } = request.body;
-    oneArg = Number(oneArg);
-    if (Number.isNaN(oneArg)) {
-        return { statusCode: 400, error: 'Argument are not numeric' }
-    } else {
     try {
         response
             .status(200)
@@ -35,6 +26,6 @@ app.post("/one-arg", function(request, response) {
     } catch (e) {
         response.status(400).json(e.message);
     }
-}});
+});
 
 module.exports = app;
