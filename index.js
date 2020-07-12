@@ -38,7 +38,3 @@ app.post("/one-arg", function(request, response) {
 }});
 
 module.exports = app;
-// начинаем прослушивать подключения на 3000 порту
-app.listen(3000, () => {
-    console.log('App started on https://localhost:3000');
-});
