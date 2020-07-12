@@ -8,7 +8,7 @@ const division = (dividend, divider) => {
     if (divider !== 0) {
         return dividend / divider;
     } else {
-        throw new Error('Divider can\'t be zero');
+        throw new Error('Divider can not be zero');
     }
 };
 
@@ -18,7 +18,7 @@ const percent = (basis, percent) => {
     if (percent >= 0) {
         return basis * (percent / 100);
     } else {
-        throw new Error('Percent can\'t be negative');
+        throw new Error('Percent can not be negative');
     }
 };
 
@@ -26,7 +26,7 @@ const squareRoot = (arg) => {
     if (arg >= 0) {
         return Math.sqrt(arg);
     } else {
-        throw new Error('Argument can\'t be negative');
+        throw new Error('Argument can not be negative');
     }
 };
 
@@ -35,10 +35,10 @@ const sinus = (arg) => Math.sin(arg);
 const cosinus = (arg) => Math.cos(arg);
 
 const tangent = (arg) => {
-    if (arg % Math.PI/2 !== 0){
+    if ((arg % Math.PI/2 !== 0) && (arg % Math.PI/2 + Math.PI !==0) || (arg % Math.PI === 0)){
         return Math.tan(arg);
     } else {
-        throw new Error('Argument can\'t be PI/2+PI*k, k∈R');
+        throw new Error('Argument can not be PI/2+PI*k, k∈R');
     }
 }; 
 
@@ -46,7 +46,7 @@ const cotangent = (arg) => {
     if (arg % Math.PI !== 0){
         return 1 / Math.tan(arg);
     } else {
-        throw new Error('Argument can\'t be PI*k, k∈R');
+        throw new Error('Argument can not be PI*k, k∈R');
     }
 }; 
 
