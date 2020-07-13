@@ -20,6 +20,40 @@ describe('API', () => {
             });
     });
 
+    it('Sum request', () => {
+        return request
+            .post('/two-args')
+            .send(
+                {
+                    firstArg: "1",
+                    secondArg: 2,
+                    operation: "+"
+                }
+            )
+            .expect('Content-type', /json/)
+            .expect(200)
+            .then(response => {
+                expect(response.body).toBe(3);
+            });
+    });
+
+    it('Sum request', () => {
+        return request
+            .post('/two-args')
+            .send(
+                {
+                    firstArg: "abc",
+                    secondArg: 2,
+                    operation: "+"
+                }
+            )
+            .expect('Content-type', /json/)
+            .expect(400)
+            .then(response => {
+                expect(response.body).toBe("There are not all numeric arguments here.");
+            });
+    });
+
     it('Sub request', () => {
         return request
             .post('/two-args')

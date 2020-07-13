@@ -16,7 +16,7 @@ app.post("/two-args", function(request, response) {
         try {
             response
                 .status(200)
-                .json(getTwoArgsOperation(operation)(firstArg, secondArg));
+                .json(getTwoArgsOperation(operation)(firArg, secArg));
         } catch (e) {
         response.status(400).json(e.message);
         }
@@ -32,7 +32,7 @@ app.post("/one-arg", function(request, response) {
         try {
             response
                 .status(200)
-                .json(getOneArgOperation(operation)(oneArg));
+                .json(getOneArgOperation(operation)(arg));
         } catch (e) {
             response.status(400).json(e.message);
         }
