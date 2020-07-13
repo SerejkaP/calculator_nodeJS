@@ -297,7 +297,7 @@ describe('API', () => {
             .expect('Content-type', /json/)
             .expect(400)
             .then(response => {
-                expect(response.body).toBe("Argument can not be PI*k, k∈R");
+                expect(response.body).toBe("Argument can not be PI * k, k∈R");
             });
     })
 });

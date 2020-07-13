@@ -1,25 +1,33 @@
-const addition = (arg1, arg2) => {
-    var firArg = Number(arg1);
-    var secArg = Number(arg2);
-    if ( Number.isNaN(firArg) || Number.isNaN(secArg)) {
+const checkArg = (arg) => {
+    if ( Number.isNaN(Number(arg))) {
         throw new Error('There are not all numeric arguments here.');
     } else { 
-        return firArg + secArg;
+        return true;
     }
 };
 
-const subtraction = (minuend, subtrahend) => minuend - subtrahend;
+const addition = (arg1, arg2) => {
+    if (checkArg(arg1) && checkArg(arg2)) {
+        return Number(arg1) + Number(arg2);
+    }
+};
 
-const multiplication = (multiplicand, multiplier) => multiplicand * multiplier;
+const subtraction = (minuend, subtrahend) => {
+    if (checkArg(minuend) && checkArg(subtrahend)) {
+        return Number(minuend) - Number(subtrahend);
+    }
+};
+
+const multiplication = (multiplicand, multiplier) => {
+    if (checkArg(multiplicand) && checkArg(multiplier)) {
+        return Number(multiplicand) * Number(multiplier);
+    }
+}
 
 const division = (dividend, divider) => {
-    var firArg = Number(dividend);
-    var secArg = Number(divider);
-    if ( Number.isNaN(firArg) || Number.isNaN(secArg)) {
-        throw new Error('There are not all numeric arguments here.');
-    } else { 
-        if (secArg !== 0) {
-            return firArg / secArg;
+    if (checkArg(dividend) && checkArg(divider)) {
+        if (Number(divider) !== 0) {
+            return Number(dividend) / Number(divider);
         } else {
             throw new Error('Divider can not be zero');
         }
@@ -27,82 +35,59 @@ const division = (dividend, divider) => {
 };
 
 const exponentiation = (basis, power) => {
-    var firArg = Number(basis);
-    var secArg = Number(power);
-    if ( Number.isNaN(firArg) || Number.isNaN(secArg)) {
-        throw new Error('There are not all numeric arguments here.');
-    } else { 
-        return Math.pow(firArg, secArg);
+    if (checkArg(basis) && checkArg(power)) {
+        return Math.pow(Number(basis), Number(power));
     }
 };
 
 const percent = (basis, percent) => {
-    var firArg = Number(basis);
-    var secArg = Number(percent);
-    if ( Number.isNaN(firArg) || Number.isNaN(secArg)) {
-        throw new Error('There are not all numeric arguments here.');
-    } else { 
-        if (secArg >= 0) {
-            return firArg * (secArg / 100);
+    if (checkArg(basis) && checkArg(percent)) {
+        if (Number(percent) >= 0) {
+            return Number(basis) * (Number(percent) / 100);
         } else {
             throw new Error('Percent can not be negative');
         }
     }
 };
 
-const squareRoot = (argument) => {
-    var arg = Number(argument);
-    if (Number.isNaN(arg)) {
-        response.status(400).json('It is not a numeric argument here.');
-    } else {
-        if (arg >= 0) {
-            return Math.sqrt(arg);
+const squareRoot = (arg) => {
+    if (checkArg(arg)) {
+        if (Number(arg) >= 0) {
+            return Math.sqrt(Number(arg));
         } else {
             throw new Error('Argument can not be negative');
         }
     }
 };
 
-const sinus = (argument) => {
-    var arg = Number(argument);
-    if (Number.isNaN(arg)) {
-        response.status(400).json('It is not a numeric argument here.');
-    } else {
-        return Math.sin(arg);
+const sinus = (arg) => {
+    if (checkArg(arg)) {
+        return Math.sin(Number(arg));
     }
 };
 
-const cosinus = (argument) => {
-    var arg = Number(argument);
-    if (Number.isNaN(arg)) {
-        response.status(400).json('It is not a numeric argument here.');
-    } else {
-        return Math.cos(arg);
+const cosinus = (arg) => {
+    if (checkArg(arg)) {
+        return Math.cos(Number(arg));
     }
 };
 
-const tangent = (argument) => {
-    var arg = Number(argument);
-    if (Number.isNaN(arg)) {
-        response.status(400).json('It is not a numeric argument here.');
-    } else {
-        if ((arg % Math.PI/2 !== 0) && (arg % Math.PI/2 + Math.PI !==0) || (arg % Math.PI === 0)){
-            return Math.tan(arg);
+const tangent = (arg) => {
+    if (checkArg(arg)) {
+        if (((Number(arg) / 1.57 > 1.01)) || (Number(arg) / 4.71 > 1.01) || (Number(arg) ===0)){
+            return Math.tan(Number(arg));
         } else {
-            throw new Error('Argument can not be PI/2+PI*k, k∈R');
+            throw new Error('Argument can not be PI / 2 + PI * k, k∈R');
         }
     }
 }; 
 
-const cotangent = (argument) => {
-    var arg = Number(argument);
-    if (Number.isNaN(arg)) {
-        response.status(400).json('It is not a numeric argument here.');
-    } else {
-        if (arg % Math.PI !== 0){
-            return 1 / Math.tan(arg);
+const cotangent = (arg) => {
+    if (checkArg(arg)) {
+        if (Number(arg) % Math.PI !== 0){
+            return 1 / Math.tan(Number(arg));
         } else {
-            throw new Error('Argument can not be PI*k, k∈R');
+            throw new Error('Argument can not be PI * k, k∈R');
         }
     }
 }; 
