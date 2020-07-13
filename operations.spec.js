@@ -51,6 +51,10 @@ describe("Two arguments operation", () => {
         expect(getTwoArgsOperation("+")(1, 2)).toBe(3);
     });
 
+    it("addition", () => {
+        expect(getTwoArgsOperation("+")("1", 2)).toBe(3);
+    });
+
     it("subtraction", () => {
         expect(getTwoArgsOperation("-")(1, 2)).toBe(-1);
     });
@@ -75,6 +79,10 @@ describe("Two arguments operation", () => {
 describe("One argument operation", () => {
     it("squareRoot", () => {
         expect(getOneArgOperation("sqrt")(4)).toBe(2);
+    });
+
+    it("squareRoot", () => {
+        expect(getOneArgOperation("sqrt")("4")).toBe(2);
     });
 
     it("sinus", () => {
