@@ -269,6 +269,22 @@ describe('API', () => {
             });
     });
 
+    it('Tangent request', () => {
+        return request
+            .post('/one-arg')
+            .send(
+                {
+                    oneArg: 1.57,
+                    operation: "tg"
+                }
+            )
+            .expect('Content-type', /json/)
+            .expect(400)
+            .then(response => {
+                expect(response.body).toBe("Argument can not be PI / 2 + PI * k, k∈R");
+            });
+    });
+
     it('Cotangent request', () => {
         return request
             .post('/one-arg')

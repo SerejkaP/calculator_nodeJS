@@ -1,4 +1,5 @@
 const { getOneArgOperation, getTwoArgsOperation } = require("./operations");
+const operations = require("./operations");
 
 describe("Operation getter", () => {
     it("should return addition function", () => {
