@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
-    response.sendFile(path.join(__dirname + '/frontend/index.html'));
+    response.sendFile(path.join(__dirname + '/index.html'));
 })
 
 app.post("/two-args", function(request, response) {
